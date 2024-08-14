@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://portfolio-template-andrew.vercel.app/#contact -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://portfolio-template-andrew.vercel.app/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://portfolio-template-andrew.vercel.app/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://portfolio-template-andrew.vercel.app/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="https://portfolio-template-andrew.vercel.app/images/favicon/site.webmanifest">
+  <link rel="mask-icon" href="https://portfolio-template-andrew.vercel.app/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>스크롤 요소 고정-포트폴리오 양식</title>
+  <link href="./스크롤 요소 고정-포트폴리오 양식(#contact)_files/aos.css" rel="stylesheet">
+</head>
+<body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
+ <!-- 헤더 영역 -->
+ <div id="home" class="header">
+  <h1>DESIGN Portfolio</h1>
+ </div>
+
+ <!-- 네비게이션 영역 -->
+ <nav class="navbar">
+  <ul>
+   <li><a href="https://portfolio-template-andrew.vercel.app/#home">Web</a></li>
+   <li><a href="https://portfolio-template-andrew.vercel.app/#visual">App</a></li>
+   <li><a href="https://portfolio-template-andrew.vercel.app/#about">Visual</a></li>
+   <li><a href="https://portfolio-template-andrew.vercel.app/#portfolio">About</a></li>
+   <li><a href="https://portfolio-template-andrew.vercel.app/#contact">Contact</a></li>
+  </ul>
+ </nav>
+
+ <!-- 컨텐츠 영역 -->
+ <div class="content">
+  <div id="visual" class="section aos-init aos-animate" data-aos="fade-right" data-aos-delay="300" data-aos-duration="1000">
+   <span>visual</span>
+  </div>
+  <div id="about" class="section aos-init" data-aos="fade-right" data-aos-delay="300" data-aos-duration="1000">
+   <span>about</span>
+  </div>
+  <div id="portfolio" class="section aos-init" data-aos="fade-right" data-aos-delay="300" data-aos-duration="1000">
+   <span>portfolio</span>
+  </div>
+  <div id="contact" class="section aos-init" data-aos="fade-right" data-aos-delay="300" data-aos-duration="1000">
+   <span>contact</span>
+  </div>
+ </div>
+
+ <!-- javascript -->
+ <script src="./스크롤 요소 고정-포트폴리오 양식_files/aos.js.다운로드"></script>
+ <script>
+  // AOS 라이브러리 시작
+  AOS.init();
+  // AOS 라이브러리 끝
+
+  window.onscroll = function () {
+   makeSticky();
+  };
+
+  const navbar = document.querySelector(".navbar");
+  const sticky = navbar.offsetTop; // 요소의 초기 위치를 기억
+  console.log("navbar.offsetTop", sticky);
+  let isSticky = false; // 고정 상태를 추적하기 위한 변수
+  let slideTimeout; // 슬라이드업 타이머
+  let isMouseOverNavbar = false; // 마우스가 네비게이션 바 위에 있는지 여부
+  let lastMouseMoveTime = 0; // 마지막 mousemove 이벤트 시간
+
+  function makeSticky() {
+   if (window.pageYOffset >= sticky && !isSticky) {
+    // 네비게이션 바가 처음 고정될 때
+    console.log("window.pageYOffset", window.pageYOffset);
+    console.log("isSticky", isSticky);
+    navbar.classList.add("sticky");
+    isSticky = true; // 상태를 고정됨으로 설정
+    console.log("isSticky", isSticky);
+
+    // 2초 후 슬라이드업 클래스 추가
+    slideTimeout = setTimeout(() => {
+     if (!isMouseOverNavbar) {
+      // 마우스가 네비게이션 바에 없을 때만 슬라이드 업
+      navbar.classList.add("slide-up");
+      console.log("네비게이션 슬라이드업");
+      console.log("isMouseOverNavbar", isMouseOverNavbar);
+     }
+    }, 2000);
+   } else if (window.pageYOffset < sticky && isSticky) {
+    // 네비게이션 바가 고정되지 않을 때
+    navbar.classList.remove("sticky", "slide-up"); // 슬라이드업 상태도 제거
+    isSticky = false; // 상태를 고정되지 않음으로 설정
+    console.log("isSticky", isSticky);
+
+    // 슬라이드업 타이머 취소
+    clearTimeout(slideTimeout);
+   }
+  }
+
+  // 마우스가 상단 근처에 있을 때 네비게이션 바 슬라이드다운 (throttle 적용)
+  window.addEventListener("mousemove", function (event) {
+   const now = Date.now(); // 현재 시간을 밀리초 단위로 반환하는 함수
+
+   if (now - lastMouseMoveTime < 100) {
+    // 100ms 간격으로만 처리
+    return;
+   }
+
+   lastMouseMoveTime = now;
+
+   if (event.clientY < 50 && isSticky && !isMouseOverNavbar) {
+    // 마우스가 상단 50px 이내에 있을 때
+    navbar.classList.remove("slide-up");
+    console.log("마우스가 상단에 위치하여 슬라이드다운");
+   }
+  });
+
+  // 마우스가 네비게이션 바에 들어왔을 때
+  navbar.addEventListener("mouseenter", function () {
+   isMouseOverNavbar = true;
+   if (isSticky) {
+    console.log("isMouseOverNavbar", isMouseOverNavbar);
+    navbar.classList.remove("slide-up");
+    console.log("마우스가 네비게이션 바에 위치하여 슬라이드다운");
+   }
+  });
+
+  // 마우스가 네비게이션 바를 벗어났을 때
+  navbar.addEventListener("mouseleave", function () {
+   isMouseOverNavbar = false;
+   if (isSticky) {
+    console.log("isMouseOverNavbar", isMouseOverNavbar);
+    navbar.classList.add("slide-up");
+    console.log("마우스가 네비게이션 바를 벗어나 슬라이드업");
+   }
+  });
+ </script>
+
+
+</body></html>

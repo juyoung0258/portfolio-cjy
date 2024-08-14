@@ -1,0 +1,263 @@
+
+
+.hiki {
+    position: absolute;
+    top: 6%;
+    left: 17%;
+    width: 770px;
+    height: 400px;
+    overflow: hidden;
+    display: inline-block;
+    border-radius: 50px;
+    transition: filter 0.3s ease; /* 필터 효과에 부드러운 전환 추가 */
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    /* border: 4px solid #fff; */
+    background-color: #45259b;
+}
+
+.hiki > img {
+    position: relative;
+    left: -14%;
+    top: 10%;
+  transform: scale(0.26);
+  width: 1000px;
+  height: 1300px;
+  transform-origin: top; /* 기준점을 왼쪽 위로 설정 */
+    transition: filter 0.3s ease; /* 필터 효과에 부드러운 전환 추가 */
+    filter: saturate(1.23);
+}
+
+.box3 {
+    position: absolute;
+    top: 6%;
+    left: 17%;
+    width: 770px;
+    height: 400px;
+    overflow: hidden;
+    display: inline-block;
+    border-radius: 50px;
+    transition: opacity 0.5s ease; /* opacity 변화에 부드러운 전환 추가 */
+    /* border: 4px solid #fff; */
+    background-color: #fff;
+}
+
+.box3 img {
+    position: relative;
+    left: -14%;
+    top: 10%;
+  transform: scale(0.26);
+  width: 1000px;
+  height: 1300px;
+  transform-origin: top; /* 기준점을 왼쪽 위로 설정 */
+  transition: opacity 0.5s ease; /* opacity 변화에 부드러운 전환 추가 */
+    filter: saturate(0);
+}
+
+.box3:hover {
+  opacity: 0;
+}
+
+.txt-3 .title {
+  font-size: 3.3em; /* 폰트 크기 조정 */
+  margin-left: 200px;
+  padding: 0;
+  top: 65px;
+  position: relative;
+  font-family: 'Pretendard-Regular';
+}
+
+.txt-3 .en {
+    position: absolute;
+    font-size: 2.3em; /* 폰트 크기 조정 */
+    margin-left: 294px;
+    margin-top: 80px;
+    padding: 0;
+    top: 65px;
+    font-family: 'Pretendard-Regular';
+  }
+
+.txt-3 .type {
+font-family: 'Pretendard-Regular';
+font-size: 1.8em; /* 폰트 크기 조정 */
+padding: 0;
+top: 240px;
+position: absolute;
+margin-left: 290px;
+font-weight: 400;
+}
+
+.txt-3 .tool {
+font-family: 'Pretendard-Regular';
+font-size: 1.6em; /* 폰트 크기 조정 */
+padding: 0;
+top: 280px;
+position: absolute;
+margin-left: 399px;
+font-weight: 400;
+}
+
+.txt-3 .redesign {
+font-size: 2em; /* 폰트 크기 조정 */
+font-weight: bold;
+padding: 22px 110px;
+top: 364px;
+position: relative;
+margin-left: 766px;
+color: rgb(93, 133, 241);
+font-family: 'SUITE-Regular';
+background-color: #fff;
+border-radius: 10px;
+text-align: center;
+box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+transition: all 0.3s ease-in; /* 부드럽게 변화하는 효과 */
+}
+
+.txt-3 .redesign:hover {
+  color: #fff;
+  font-family: 'SUITE-Regular';
+  background-color: rgb(93, 133, 241);
+  border: 3px solid #fff;
+}
+
+.ezroad {
+position: absolute;
+top: 52%;
+left: 17%;
+width: 770px;
+height: 400px;
+overflow: hidden; /* 이미지가 부모 영역을 넘지 않도록 설정 */
+display: inline-block;
+border-radius: 50px;
+transition: filter 0.3s ease; /* 필터 효과에 부드러운 전환 추가 */
+box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+/* border: 4px solid #fff; */
+background-color: #FF8B20;
+}
+
+.ezroad img {
+    position: relative;
+top: 30%;
+left: 19%; /* 위치 조정 제거 */
+position: absolute;
+transform-origin: left top; /* 기준점을 왼쪽 위로 설정 */
+display: block; /* 이미지 주변의 여백 제거 */
+transition: filter 0.3s ease; /* 필터 효과에 부드러운 전환 추가 */
+filter: saturate(1);
+}
+
+.box4 {
+position: absolute;
+top: 52%;
+left: 17%;
+width: 770px;
+height: 400px;
+overflow: hidden; /* 이미지가 부모 영역을 넘지 않도록 설정 */
+border-radius: 50px;
+transition: opacity 0.5s ease; /* opacity 변화에 부드러운 전환 추가 */
+/* border: 4px solid #fff; */
+background-color: #fff;
+}
+
+.box4 img {
+    position: relative;
+top: 30%;
+left: 19%; /* 위치 조정 제거 */
+position: absolute;
+transform-origin: left top; /* 기준점을 왼쪽 위로 설정 */
+display: block; /* 이미지 주변의 여백 제거 */
+transition: filter 0.3s ease; /* 필터 효과에 부드러운 전환 추가 */
+filter: saturate(0);
+}
+
+.box4:hover {
+opacity: 0;
+}
+
+.txt-4 .title {
+font-size: 3.3em; /* 폰트 크기 조정 */
+margin-left: 200px;
+padding: 0;
+top: 440px;
+position: relative;
+font-family: 'Pretendard-Regular';
+}
+
+.txt-4 .en {
+    position: absolute;
+    font-size: 2.2em; /* 폰트 크기 조정 */
+    margin-left: 296px;
+    margin-top: 95px;
+    padding: 0;
+    font-family: 'Pretendard-Regular';
+  }
+
+.txt-4 .type {
+font-family: 'Pretendard-Regular';
+font-size: 1.8em; /* 폰트 크기 조정 */
+padding: 0;
+top: 662px;
+position: absolute;
+margin-left: 288px;
+font-weight: 400;
+}
+
+.txt-4 .tool {
+font-family: 'Pretendard-Regular';
+font-size: 1.6em; /* 폰트 크기 조정 */
+padding: 0;
+top: 702px;
+position: absolute;
+margin-left: 398px;
+font-weight: 400;
+}
+
+.txt-4 .redesign {
+    font-family: 'Pretendard-Regular';
+    font-size: 2em; /* 폰트 크기 조정 */
+    font-weight: bold;
+    padding: 22px 110px;
+    top: 750px;
+    position: relative;
+    margin-left: 766px;
+    color: rgb(93, 133, 241);
+    font-family: 'SUITE-Regular';
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in; /* 부드럽게 변화하는 효과 */
+    }
+
+    .txt-4 .redesign:hover {
+      color: #fff;
+      font-family: 'SUITE-Regular';
+      background-color: rgb(93, 133, 241);
+      border: 3px solid #fff;
+    }
+
+    /* 새로운 요소 추가 */
+
+    .new-section {
+      position: absolute;
+      margin-top: 400px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .new-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+    
+    .new-section p {
+      font-size: 1rem;
+      color: #333;
+    }
+    
+    .new-section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
