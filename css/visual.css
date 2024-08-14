@@ -162,7 +162,7 @@ transition: all 0.3s ease-in; /* 부드럽게 변화하는 효과 */
       font-size: 3.3em; /* 폰트 크기 조정 */
       margin-left: 200px;
       padding: 0;
-      top: 444px;
+      top: 484px;
       position: relative;
       font-family: 'Pretendard-Regular';
       }
@@ -180,7 +180,7 @@ transition: all 0.3s ease-in; /* 부드럽게 변화하는 효과 */
       font-family: 'Pretendard-Regular';
       font-size: 1.8em; /* 폰트 크기 조정 */
       padding: 0;
-      top: 670px;
+      top: 710px;
       position: absolute;
       margin-left: 338px;
       font-weight: 400;
@@ -190,7 +190,7 @@ transition: all 0.3s ease-in; /* 부드럽게 변화하는 효과 */
       font-family: 'Pretendard-Regular';
       font-size: 1.6em; /* 폰트 크기 조정 */
       padding: 0;
-      top: 710px;
+      top: 750px;
       position: absolute;
       margin-left: 438px;
       font-weight: 400;
@@ -201,7 +201,7 @@ transition: all 0.3s ease-in; /* 부드럽게 변화하는 효과 */
           font-size: 2em; /* 폰트 크기 조정 */
           font-weight: bold;
           padding: 22px 110px;
-          top: 750px;
+          top: 790px;
           position: relative;
           margin-left: 768px;
           color: rgb(93, 133, 241);

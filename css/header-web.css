@@ -1,382 +1,387 @@
 @font-face {
-    font-family: 'SUITE-Regular';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Pretendard-Regular';
-    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    font-style: normal;
-}
-
-@font-face {
-  font-family: 'SUIT-Regular';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
-  font-weight: normal;
+  font-family: 'SUITE-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
   font-style: normal;
 }
 
-    /* 기본 CSS 설정 */
-    html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        background: linear-gradient(45deg,rgb(93, 133, 241), #8fd0ff);
-      }
-  
-      /* .header 스타일 설정 */
-      .header {
-        font-family: 'SUIT-Regular';
-        position: relative;
-        width: 100%;
-        height: 100vh; /* 화면 전체 높이 */
-        overflow: hidden;
-        text-align: center;
-        font-size: 15vw;
-        font-weight: 900;
-        line-height: 1.1; /* 줄 간격 조절 */
-        background: linear-gradient(45deg,rgb(93, 133, 241), #8fd0ff);
-        filter: brightness(1.7);
-        opacity: 0.9;
-      }
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-style: normal;
+}
 
-      .header video {
-        width: 100%;
-      }
 
-/* 기본 스타일 */
+  /* 기본 CSS 설정 */
+  html, body {
+    height: 100%;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(45deg,rgb(93, 133, 241), #8fd0ff);
+    }
 
-#header-text {
-    white-space: pre-wrap; /* 텍스트의 공백과 줄 바꿈을 유지하도록 설정 */
-    font-size: 8vw;
-    line-height: 1.1;
-    color: #fff;
-    font-weight: 400;
-    text-align: center; /* 중앙 정렬 */
-    position: relative;
-    margin-top: 280px;
+    /* .header 스타일 설정 */
+    .header {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      text-align: center;
+      font-size: 15vw;
+      font-weight: 900;
+      line-height: 1.1;
+      background: linear-gradient(45deg, rgb(93, 133, 241), #8fd0ff);
+      filter: brightness(1.7);
+      opacity: 0.9;
+    }
+    
+    .header video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    #header-text {
+      letter-spacing: -2px;
+      font-size: 7vw;
+      line-height: 1.2;
+      color: #fff;
+      font-weight: 400;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 1;
+    }
+
+/* 각 글자의 애니메이션 */
+#header-text span {
+  opacity: 0; /* 초기에는 글자를 숨김 */
+  transform: translateY(20px);
+  animation: fadeIn 1s forwards;
+}
+
+/* 애니메이션 효과 정의 */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 애니메이션을 무한 반복하도록 설정 */
+#header-text.animate-text span {
+  animation: fadeIn 1s forwards;
+  animation-delay: calc(0.1s * var(--i));
+}
+
+/* 무한 애니메이션을 위해 추가 설정 */
+@keyframes infiniteFadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
     opacity: 1;
   }
-  
-  /* 각 글자의 애니메이션 */
-  #header-text span {
-    opacity: 0; /* 초기에는 글자를 숨김 */
-    transform: translateY(20px);
-    animation: fadeIn 1s forwards;
+  100% {
+    opacity: 0;
   }
-  
-  /* 애니메이션 효과 정의 */
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* 애니메이션을 무한 반복하도록 설정 */
-  #header-text.animate-text span {
-    animation: fadeIn 1s forwards;
-    animation-delay: calc(0.1s * var(--i));
-  }
-  
-  /* 무한 애니메이션을 위해 추가 설정 */
-  @keyframes infiniteFadeIn {
-    0% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-  
-      /* 배경 동영상 스타일 설정 */
-      .header video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* 비율을 유지하며 전체 영역을 커버하도록 설정 */
-        z-index: -1; /* 동영상이 텍스트 뒤에 위치하도록 설정 */
-        opacity: 0.5; /* 동영상이 잘 보이도록 설정 */
-      }
-  
-      /* 네비게이션 바 및 기타 스타일 설정 */
-      .navbar {
-        background-color: rgba(107, 154, 248, 0.868);
-        overflow: hidden;
-        position: relative; /* 기본 위치 */
-        width: 100%;
-        height: 60px;
-        text-align: center;
-        justify-content: center;
-        transition: transform 0.5s ease-in-out; /* 슬라이드 효과를 위한 트랜지션 추가 */
-      }
-  
-      .navbar ul {
-        list-style-type: none;
-        margin: 0;
-        width: 100%;
-        height: 60px;
-        display: flex;
-        text-align: center;
-        justify-content: center;
-      }
-  
-      .navbar li a {
-        display: block;
-        color: #fff;
-        font-weight: 500;
-        text-align: center;
-        padding: 16px 0px;
-        text-decoration: none;
-        font-size: 28px;
-        font-weight: 500;
-        width: 300px;
-        height: fit-content;
-        font-family: 'SUITE-Regular';
-        transition: all 0.3s ease-in; /* 부드럽게 변화하는 효과 */
-      }
-  
-      .navbar li a:hover {
-        background-color: #fff;
-        color: rgb(93, 133, 241);
-        width: 300px;
-        height: fit-content;
-        padding: 16px 0px;
-        text-align: center;
-        justify-content: center;
-      }
-  
-      .sticky {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-        opacity: 0.9;
-      }
-  
-      .slide-up {
-        transform: translateY(-100%); /* 요소를 위로 슬라이드 */
-      }
-  
-      .content {
-        position: relative;
-        overflow: hidden;
-      }
-  
-      .section {
-        position: relative;
-        width: 100%;
-        height: 100vh;
-      }
-  
-      .section span {
-        font-family: 'SUITE-Regular';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        padding: 20px 40px;
-        font-weight: bold;
-        font-size: 48px;
-        text-transform: uppercase;
-        color: #f5f5f5;
-      }
+}
 
-      .steam {
-        position: absolute;
-        top: 6%;
-        left: 17%;
-        width: 770px;
-        height: 400px;
-        overflow: hidden;
-        display: inline-block;
-        border-radius: 50px;
-        transition: filter 0.3s ease; /* 필터 효과에 부드러운 전환 추가 */
-        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
-        /* border: 4px solid #fff; */
-    }
-  
-    .steam img {
-      transform: scale(0.505);
+    /* 배경 동영상 스타일 설정 */
+    .header video {
+      position: absolute;
       top: 0;
-      left: -100px;
-      border-radius: 50px;
-        position: absolute;
-        transform-origin: left top; /* 기준점을 왼쪽 위로 설정 */
-        display: block; /* 이미지 주변의 여백 제거 */
-        transition: filter 0.3s ease; /* 필터 효과에 부드러운 전환 추가 */
-        filter: saturate(1.23);
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* 비율을 유지하며 전체 영역을 커버하도록 설정 */
+      z-index: -1; /* 동영상이 텍스트 뒤에 위치하도록 설정 */
+      opacity: 0.5; /* 동영상이 잘 보이도록 설정 */
     }
 
-    .box1 {
+    /* 네비게이션 바 및 기타 스타일 설정 */
+   /* 기본적으로 navbar를 숨김 */
+.navbar {
+  background-color: rgba(107, 154, 248, 0.868);
+  overflow: hidden;
+  position: fixed;
+  top: -60px; /* navbar의 높이만큼 숨김 */
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  justify-content: center;
+  transition: top 0.5s ease-in;
+  z-index: 1000;
+}
+
+/* 네비게이션 바가 화면의 상단으로 스크롤될 때 보이도록 설정 */
+.show-navbar {
+  top: 0;
+  transition: top 0.5s ease-in;
+}
+
+/* 네비게이션 바 스타일 */
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+    .navbar li a {
+      display: block;
+      color: #fff;
+      font-weight: 500;
+      text-align: center;
+      padding: 16px 0px;
+      text-decoration: none;
+      font-size: 28px;
+      font-weight: 500;
+      width: 300px;
+      height: fit-content;
+      font-family: 'SUITE-Regular';
+      transition: all 0.3s ease-in; /* 부드럽게 변화하는 효과 */
+    }
+
+    .navbar li a:hover {
+      background-color: #fff;
+      color: rgb(93, 133, 241);
+      width: 300px;
+      height: fit-content;
+      padding: 16px 0px;
+      text-align: center;
+      justify-content: center;
+    }
+
+    .sticky {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      opacity: 0.9;
+    }
+    
+    .slide-up {
+      transform: translateY(-100%);
+    }
+
+    .content {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+    }
+
+    .section span {
+      font-family: 'SUITE-Regular';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px 40px;
+      font-weight: bold;
+      font-size: 48px;
+      text-transform: uppercase;
+      color: #f5f5f5;
+    }
+
+    .steam {
       position: absolute;
       top: 6%;
       left: 17%;
       width: 770px;
       height: 400px;
       overflow: hidden;
+      display: inline-block;
       border-radius: 50px;
-      transition: opacity 0.5s ease; /* opacity 변화에 부드러운 전환 추가 */
+      transition: filter 0.3s ease; /* 필터 효과에 부드러운 전환 추가 */
+      box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
       /* border: 4px solid #fff; */
-    }
-    
-    .box1 img {
-      transform: scale(0.505);
-      top: 0;
-      left: -100px;
+  }
+
+  .steam img {
+    transform: scale(0.505);
+    top: 0;
+    left: -100px;
+    border-radius: 50px;
       position: absolute;
-      border-radius: 50px;
       transform-origin: left top; /* 기준점을 왼쪽 위로 설정 */
       display: block; /* 이미지 주변의 여백 제거 */
       transition: filter 0.3s ease; /* 필터 효과에 부드러운 전환 추가 */
-      filter: saturate(0); /* 흑백 처리 */
-    }
-    
-    .box1:hover {
-      opacity: 0;
-    }
-  
-  .txt-1 .title {
-      font-size: 3.3em; /* 폰트 크기 조정 */
-      margin-left: 200px;
-      padding: 0;
-      top: 60px;
-      position: relative;
-      font-family: 'Pretendard-Regular';
+      filter: saturate(1.23);
   }
 
-  .txt-1 .type {
-    font-family: 'Pretendard-Regular';
-    font-size: 1.8em; /* 폰트 크기 조정 */
-    padding: 0;
-    top: 200px;
+  .box1 {
     position: absolute;
-    margin-left: 290px;
-    font-weight: 400;
-}
+    top: 6%;
+    left: 17%;
+    width: 770px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 50px;
+    transition: opacity 0.5s ease; /* opacity 변화에 부드러운 전환 추가 */
+    /* border: 4px solid #fff; */
+  }
   
-  .txt-1 .tool {
-    font-family: 'Pretendard-Regular';
-    font-size: 1.6em; /* 폰트 크기 조정 */
-    padding: 0;
-    top: 240px;
+  .box1 img {
+    transform: scale(0.505);
+    top: 0;
+    left: -100px;
     position: absolute;
-    margin-left: 375px;
-    font-weight: 400;
+    border-radius: 50px;
+    transform-origin: left top; /* 기준점을 왼쪽 위로 설정 */
+    display: block; /* 이미지 주변의 여백 제거 */
+    transition: filter 0.3s ease; /* 필터 효과에 부드러운 전환 추가 */
+    filter: saturate(0); /* 흑백 처리 */
+  }
+  
+  .box1:hover {
+    opacity: 0;
+  }
+
+.txt-1 .title {
+    font-size: 3.3em; /* 폰트 크기 조정 */
+    margin-left: 200px;
+    padding: 0;
+    top: 60px;
+    position: relative;
+    font-family: 'Pretendard-Regular';
+}
+
+.txt-1 .type {
+  font-family: 'Pretendard-Regular';
+  font-size: 1.8em; /* 폰트 크기 조정 */
+  padding: 0;
+  top: 200px;
+  position: absolute;
+  margin-left: 290px;
+  font-weight: 400;
+}
+
+.txt-1 .tool {
+  font-family: 'Pretendard-Regular';
+  font-size: 1.6em; /* 폰트 크기 조정 */
+  padding: 0;
+  top: 240px;
+  position: absolute;
+  margin-left: 375px;
+  font-weight: 400;
 }
 
 .txt-1 .origin {
-  font-family: 'Pretendard-Regular';
-  font-size: 2em; /* 폰트 크기 조정 */
-  font-weight: bold;
-  padding: 15px 100px;
-  top: 280px;
-  position: relative;
-  margin-left: 672px;
-  color: rgb(93, 133, 241);
-  font-family: 'SUITE-Regular';
-  background-color: #fff;
-  border-radius: 10px;
-  border: 3px solid #fff;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+font-family: 'Pretendard-Regular';
+font-size: 2em; /* 폰트 크기 조정 */
+font-weight: bold;
+padding: 15px 100px;
+top: 280px;
+position: relative;
+margin-left: 672px;
+color: rgb(93, 133, 241);
+font-family: 'SUITE-Regular';
+background-color: #fff;
+border-radius: 10px;
+border: 3px solid #fff;
+box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .txt-1 .redesign {
-  font-family: 'Pretendard-Regular';
-  font-size: 2em; /* 폰트 크기 조정 */
-  font-weight: bold;
-  padding: 20px 91px;
-  top: 340px;
-  position: relative;
-  margin-left: 1157px;
-  color: rgb(93, 133, 241);
-  font-family: 'SUITE-Regular';
-  background-color: #fff;
-  border-radius: 10px;
-  border: 3px solid #fff;
-  text-align: center;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-in; /* 부드럽게 변화하는 효과 */
+font-family: 'Pretendard-Regular';
+font-size: 2em; /* 폰트 크기 조정 */
+font-weight: bold;
+padding: 20px 91px;
+top: 340px;
+position: relative;
+margin-left: 1157px;
+color: rgb(93, 133, 241);
+font-family: 'SUITE-Regular';
+background-color: #fff;
+border-radius: 10px;
+border: 3px solid #fff;
+text-align: center;
+box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+transition: all 0.3s ease-in; /* 부드럽게 변화하는 효과 */
 }
 
 .txt-1 .redesign:hover {
-  color: #fff;
-  font-family: 'SUITE-Regular';
-  background-color: rgb(93, 133, 241);
-  border: 3px solid #fff;
+color: #fff;
+font-family: 'SUITE-Regular';
+background-color: rgb(93, 133, 241);
+border: 3px solid #fff;
 }
 
 
 .ghb {
-  position: absolute;
-  top: 52%;
-  left: 17%;
-  width: 770px;
-  height: 400px;
-  overflow: hidden; /* 이미지가 부모 영역을 넘지 않도록 설정 */
-  display: inline-block;
-  border-radius: 50px;
-  transition: filter 0.3s ease; /* 필터 효과에 부드러운 전환 추가 */
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
-  /* border: 4px solid #fff; */
+position: absolute;
+top: 52%;
+left: 17%;
+width: 770px;
+height: 400px;
+overflow: hidden; /* 이미지가 부모 영역을 넘지 않도록 설정 */
+display: inline-block;
+border-radius: 50px;
+transition: filter 0.3s ease; /* 필터 효과에 부드러운 전환 추가 */
+box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+/* border: 4px solid #fff; */
 }
 
 .ghb img {
-  transform: scale(1); /* 이미지 크기 조정 제거 */
-  top: 0;
-  left: 0; /* 위치 조정 제거 */
-  width: 100%; /* 부모 요소에 맞추어 이미지 크기 설정 */
-  height: 100%; /* 부모 요소에 맞추어 이미지 크기 설정 */
-  border-radius: 50px;
-  position: absolute;
-  transform-origin: left top; /* 기준점을 왼쪽 위로 설정 */
-  display: block; /* 이미지 주변의 여백 제거 */
-  transition: filter 0.3s ease; /* 필터 효과에 부드러운 전환 추가 */
-  filter: saturate(1);
+transform: scale(1); /* 이미지 크기 조정 제거 */
+top: 0;
+left: 0; /* 위치 조정 제거 */
+width: 100%; /* 부모 요소에 맞추어 이미지 크기 설정 */
+height: 100%; /* 부모 요소에 맞추어 이미지 크기 설정 */
+border-radius: 50px;
+position: absolute;
+transform-origin: left top; /* 기준점을 왼쪽 위로 설정 */
+display: block; /* 이미지 주변의 여백 제거 */
+transition: filter 0.3s ease; /* 필터 효과에 부드러운 전환 추가 */
+filter: saturate(1);
 }
 
 .box2 {
-  position: absolute;
-  top: 52%;
-  left: 17%;
-  width: 770px;
-  height: 400px;
-  overflow: hidden; /* 이미지가 부모 영역을 넘지 않도록 설정 */
-  border-radius: 50px;
-  transition: opacity 0.5s ease; /* opacity 변화에 부드러운 전환 추가 */
-  /* border: 4px solid #fff; */
+position: absolute;
+top: 52%;
+left: 17%;
+width: 770px;
+height: 400px;
+overflow: hidden; /* 이미지가 부모 영역을 넘지 않도록 설정 */
+border-radius: 50px;
+transition: opacity 0.5s ease; /* opacity 변화에 부드러운 전환 추가 */
+/* border: 4px solid #fff; */
 }
 
 .box2 img {
-  transform: scale(1); /* 기본 크기 설정 */
-  width: 100%; /* 부모 요소에 맞추어 이미지 크기 설정 */
-  height: 100%; /* 부모 요소에 맞추어 이미지 크기 설정 */
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 50px;
-  filter: saturate(0); /* 흑백 처리 */
+transform: scale(1); /* 기본 크기 설정 */
+width: 100%; /* 부모 요소에 맞추어 이미지 크기 설정 */
+height: 100%; /* 부모 요소에 맞추어 이미지 크기 설정 */
+position: absolute;
+top: 0;
+left: 0;
+border-radius: 50px;
+filter: saturate(0); /* 흑백 처리 */
 }
 
 .box2:hover {
-  opacity: 0;
+opacity: 0;
 }
 
 .txt-2 .title {
 font-size: 3.3em; /* 폰트 크기 조정 */
 margin-left: 200px;
 padding: 0;
-top: 410px;
+top: 450px;
 position: relative;
 font-family: 'Pretendard-Regular';
 }
@@ -385,7 +390,7 @@ font-family: 'Pretendard-Regular';
 font-family: 'Pretendard-Regular';
 font-size: 1.8em; /* 폰트 크기 조정 */
 padding: 0;
-top: 640px;
+top: 680px;
 position: absolute;
 margin-left: 288px;
 font-weight: 400;
@@ -395,7 +400,7 @@ font-weight: 400;
 font-family: 'Pretendard-Regular';
 font-size: 1.7em; /* 폰트 크기 조정 */
 padding: 0;
-top: 680px;
+top: 720px;
 position: absolute;
 margin-left: 335px;
 position: absolute;
@@ -408,7 +413,7 @@ font-family: 'Pretendard-Regular';
 font-size: 2em; /* 폰트 크기 조정 */
 font-weight: bold;
 padding: 15px 103px;
-top: 630px;
+top: 670px;
 position: relative;
 margin-left: 610px;
 color: rgb(93, 133, 241);
@@ -420,26 +425,26 @@ box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .txt-2 .redesign {
-  font-family: 'Pretendard-Regular';
-  font-size: 2em; /* 폰트 크기 조정 */
-  font-weight: bold;
-  padding: 20px 95px;
-  top: 690px;
-  position: relative;
-  margin-left: 1150px;
-  color: rgb(93, 133, 241);
-  font-family: 'SUITE-Regular';
-  background-color: #fff;
-  border-radius: 10px;
-  border: 3px solid #fff;
-  text-align: center;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-in; /* 부드럽게 변화하는 효과 */
+font-family: 'Pretendard-Regular';
+font-size: 2em; /* 폰트 크기 조정 */
+font-weight: bold;
+padding: 20px 95px;
+top: 730px;
+position: relative;
+margin-left: 1150px;
+color: rgb(93, 133, 241);
+font-family: 'SUITE-Regular';
+background-color: #fff;
+border-radius: 10px;
+border: 3px solid #fff;
+text-align: center;
+box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+transition: all 0.3s ease-in; /* 부드럽게 변화하는 효과 */
 }
 
 .txt-2 .redesign:hover {
-  color: #fff;
-  font-family: 'SUITE-Regular';
-  background-color: rgb(93, 133, 241);
-  border: 3px solid #fff;
+color: #fff;
+font-family: 'SUITE-Regular';
+background-color: rgb(93, 133, 241);
+border: 3px solid #fff;
 }
